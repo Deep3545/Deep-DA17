@@ -101,3 +101,60 @@ where discount_percent > 15 and quantity >= 3 order by discount_percent desc;
  select transaction_id, customer_name, product_name, quantity, unit_price, category from sales_transactions
  where (quantity > 5 and unit_price > 10000) or (quantity between 2 and 5 and unit_price > 50000)
  order by unit_price desc;
+
+ --11)
+ select * from sales_transactions
+ where city <> 'Ahmedabad'
+ and quantity > 2 and unit_price > 2000 and payment_mode<> 'cash'
+ order by unit_price desc;
+
+ --12)
+ USE salesDB;
+
+SELECT 
+    customer_name,
+    product_name,
+    quantity,
+    unit_price,
+    discount_percent,
+    customer_type
+FROM dbo.sales_transactions
+WHERE category = 'Electronics'
+  AND unit_price > 40000
+  AND quantity > 1
+  AND discount_percent < 15
+ORDER BY unit_price DESC;
+
+--13)
+select customer_name, product_name, quantity, unit_price, discount_percent, city from sales_transactions
+where category = 'furniture' and quantity > 3 and unit_price > 25000;
+
+--14)
+select * from sales_transactions
+where customer_type = 'premium' and payment_mode != 'cash' and quantity > 1 and unit_price > 20000 order by unit_price desc;
+
+--15)
+select customer_name, product_name, category, unit_price, discount_percent, payment_mode from sales_transactions
+where unit_price > 50000 and discount_percent > 10 and payment_mode!= 'cash'
+order by discount_percent desc;
+
+--16)
+select * from sales_transactions
+where category = 'appliance' and unit_price > 40000 order by unit_price desc;
+
+--17)
+SELECT
+    customer_name,
+    customer_type,
+    product_name,
+    quantity,
+    unit_price,
+    city,
+    payment_mode
+FROM salesDB.dbo.sales_transactions
+WHERE customer_type IN ('Premium', 'VIP')
+  AND city <> 'Ahmedabad'
+  AND (quantity > 3 OR unit_price > 60000)
+ORDER BY unit_price DESC;
+
+--18)

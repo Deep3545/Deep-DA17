@@ -320,3 +320,81 @@ SELECT * FROM sales_transactions3
 WHERE transaction_id = 1031;
 
 --20)
+SELECT
+    salesperson,
+    category,
+    COUNT(*) AS number_of_transactions,
+    SUM(quantity) AS total_quantity_sold,
+    SUM(quantity * unit_price) AS total_sales_value,
+    AVG(unit_price) AS average_unit_price,
+    MIN(unit_price) AS minimum_unit_price,
+    MAX(unit_price) AS maximum_unit_price,
+    AVG(discount_percent) AS average_discount_percentage
+FROM sales_transactions3
+WHERE customer_type IN ('Premium', 'VIP')
+  AND payment_mode <> 'Cash'
+  AND quantity > 1
+  AND discount_percent < 20
+GROUP BY salesperson, category
+HAVING SUM(quantity * unit_price) > 200000
+ORDER BY total_sales_value DESC;
+
+--Additional CRUD Challenge--
+insert into sales_transactions3
+(transaction_id, customer_name, product_name, category, quantity,
+ unit_price, discount_percent, city, payment_mode, salesperson, customer_type)
+
+ values
+ (1031, 'Yash Suthar', 'Macbook Pro Max', 'Electronics', 2,
+ 125000, 10, 'Mumbai', 'Online', 'Rahul', 'Premium');
+
+ UPDATE sales_transactions3
+SET
+    customer_name = 'Raj Mehta',
+    product_name = 'MacBook Pro',
+    category = 'Electronics',
+    quantity = 2,
+    unit_price = 125000,
+    discount_percent = 10,
+    city = 'Mumbai',
+    payment_mode = 'Online',
+    salesperson = 'Rahul',
+    customer_type = 'Premium'
+WHERE transaction_id = 1031;
+
+select * from sales_transactions3;
+
+
+--read--
+USE salesDB3;
+GO
+
+SELECT
+    customer_name,
+    product_name,
+    category,
+    quantity,
+    unit_price,
+    discount_percent,
+    city,
+    payment_mode,
+    salesperson,
+    customer_type
+FROM dbo.sales_transactions3
+WHERE customer_type IN ('Premium', 'VIP')
+  AND payment_mode <> 'Cash'
+  AND quantity > 1
+  AND discount_percent < 20;
+
+  --UPDATE--
+  UPDATE sales_transactions3
+  SET discount_percent = 12
+  WHERE transaction_id = 1031;
+
+  select * from sales_transactions3;
+
+  --DELETE--
+  DELETE sales_transactions3
+  WHERE transaction_id = 1031;
+
+  select * from sales_transactions3;

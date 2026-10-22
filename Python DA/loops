@@ -1,0 +1,147 @@
+# 1
+for i in range(1, 51):
+    print(i)
+# 2
+for i in range(2, 101, 2):
+    print(i)
+    
+# 3
+total = 0
+for i in range(1,101):
+   total = total + 1
+print("Sum=", total)
+
+# 4
+sales = [25000, 45000, 60000, 35000, 80000,
+         55000, 70000, 40000, 90000, 65000]
+
+total = 0
+
+for sale in sales:
+    total = total + sale
+
+average = total / len(sales)
+
+print("Total Sales =", total)
+print("Average Sales =", average)
+
+# 5
+sales = [25000, 60000, 75000, 45000, 90000, 30000]
+
+count = 0
+
+for sale in sales:
+    if sale > 50000:
+        count = count + 1
+
+print("Sales above ₹50,000 =", count)
+
+# 6
+sales = [25000, 60000, 45000, 90000, 55000]
+
+highest = sales[0]
+
+for sale in sales:
+    if sale > highest:
+        highest = sale
+
+print("Highest Sales =", highest)
+
+# 7
+sales = [25000, 60000, 45000, 90000, 55000]
+
+lowest = sales[0]
+
+for sale in sales:
+    if sale < lowest:
+        lowest = sale
+
+print("Lowest Sales =", lowest)
+
+# 8
+transactions = [5000, -2000, 3000, -1500, 7000, -500]
+count = 0 
+for value in transactions:
+   if value < 0:
+      count = count + 1
+print("Negative Transactions=", count)
+
+# 9
+sales = [50000, 75000, 100000, 60000]
+cost = [30000, 45000, 70000, 40000]
+
+for i in range(len(sales)):
+   profit = sales[i] - cost[i]
+print("product", i + 1, "Profit=", profit)
+
+# 10
+marks = [25, 45, 67, 30, 80, 55, 20, 90]
+
+passed = 0
+
+for mark in marks:
+    if mark >= 35:
+        passed = passed + 1
+
+print("Students Passed =", passed)
+
+# 11
+customers = ["Rahul", "", "Priya", "Amit", "", "Neha"]
+
+for name in customers:
+    if name == "":
+        continue
+
+    print(name)
+    
+# 12
+i = 10
+
+while i >= 1:
+    print(i)
+    i = i - 1
+    
+# 13
+sales = [25000, 45000, 75000, 125000, 90000, 150000]
+
+for sale in sales:
+    if sale > 100000:
+        print("First sale above ₹1,00,000 =", sale)
+        break
+
+    print("Processing:", sale)
+# 14
+quantities = [2, 5, 3, 4]
+prices = [1000, 500, 2000, 1500]
+
+total_revenue = 0
+
+for i in range(len(quantities)):
+    revenue = quantities[i] * prices[i]
+    total_revenue = total_revenue + revenue
+
+print("Total Revenue =", total_revenue)
+
+# 15
+sales = [25000, 60000, 45000, 120000, 75000, 30000, 150000]
+
+total_sales = 0
+highest_sales = sales[0]
+high_sales_days = 0
+
+for sale in sales:
+    total_sales = total_sales + sale
+
+    if sale > highest_sales:
+        highest_sales = sale
+
+    if sale > 50000:
+        high_sales_days = high_sales_days + 1
+
+average_sales = total_sales / len(sales)
+
+print("----- SALES REPORT -----")
+print("Total Sales =", total_sales)
+print("Average Sales =", average_sales)
+print("Highest Sales =", highest_sales)
+print("High-Sales Days =", high_sales_days)
